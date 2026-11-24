@@ -1,0 +1,34 @@
+flowchart TD
+    subgraph Client["Presentation Layer (React 19 + Tailwind CSS v4)"]
+        UI_Home["Landing Page (Hero & Protocols)"]
+        UI_Browse["Browse Catalog (Search & Category Chips)"]
+        UI_Detail["Item Detail & Claim Initiation"]
+        UI_Report["Report Property (Photo Drag-and-Drop)"]
+        UI_Dash["Member Dashboard (Finder & Claimant Tabs)"]
+        UI_Admin["Admin Console (Dispute & Review Center)"]
+        UI_Matches["Smart Matches Engine"]
+        Modal_Claim["Claim Detail Modal (Activity History & Stepper)"]
+    end
+
+    subgraph State["State Management & Heuristics"]
+        AuthCtx["AuthContext (User Identity & Role Verification)"]
+        ItemsCtx["ItemsContext (Registry, Claims, Matching & Custody Actions)"]
+        MatchEngine["Heuristic Matching Engine (Spatial, Temporal & Token Scoring)"]
+    end
+
+    subgraph DataStore["Data & Mock Layer (Cloud-Ready)"]
+        MockDB["Mock Storage (MOCK_ITEMS, MOCK_CLAIMS, MOCK_MATCHES)"]
+        StorageHelpers["Validation & Date/Time Helpers"]
+    end
+
+    subgraph FutureCloud["Future Cloud Architecture (AWS Serverless)"]
+        Cognito["AWS Cognito (Student & Admin SSO)"]
+        S3["AWS S3 (Presigned Photo Uploads)"]
+        APIGW["AWS API Gateway + Lambda"]
+        Dynamo["AWS DynamoDB (Audit & Claim Records)"]
+    end
+
+    Client --> State
+    State --> DataStore
+    State -.-> FutureCloud
+

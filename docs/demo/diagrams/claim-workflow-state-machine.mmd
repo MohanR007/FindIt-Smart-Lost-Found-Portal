@@ -1,0 +1,20 @@
+stateDiagram-v2
+    [*] --> PENDING_FINDER_REVIEW: Claimant Submits Claim (With Private Proof)
+
+    PENDING_FINDER_REVIEW --> PENDING_ADMIN_REVIEW: Finder Approves
+    PENDING_FINDER_REVIEW --> FINDER_REJECTED: Finder Rejects (Mandatory Reason)
+
+    FINDER_REJECTED --> ADMIN_REVIEW_REQUESTED: Claimant Disputes Rejection
+
+    PENDING_ADMIN_REVIEW --> ADMIN_APPROVED: Admin Grants Final Approval
+    PENDING_ADMIN_REVIEW --> ADMIN_REJECTED: Admin Rejects (Review Comment)
+
+    ADMIN_REVIEW_REQUESTED --> ADMIN_APPROVED: Admin Overrides Finder Rejection
+    ADMIN_REVIEW_REQUESTED --> ADMIN_REJECTED: Admin Upholds Rejection
+
+    ADMIN_APPROVED --> HANDOVER_IN_PROGRESS: First Party Confirms Handover
+    HANDOVER_IN_PROGRESS --> COMPLETED: Second Party Confirms Handover
+
+    COMPLETED --> [*]: Item Status Updated to RETURNED
+    ADMIN_REJECTED --> [*]: Claim Closed
+

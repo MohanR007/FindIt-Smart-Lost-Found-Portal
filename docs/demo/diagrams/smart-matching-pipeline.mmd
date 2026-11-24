@@ -1,0 +1,15 @@
+flowchart LR
+    A["New Lost/Found Item"] --> B["Category Ontology Match (35%)"]
+    A --> C["Spatial Campus Proximity (30%)"]
+    A --> D["Temporal Proximity Scan (20%)"]
+    A --> E["Token & Tag Overlap (15%)"]
+
+    B --> F["Aggregate Score (0 - 100%)"]
+    C --> F
+    D --> F
+    E --> F
+
+    F --> G{"Score >= 75%?"}
+    G -- "Yes" --> H["Index into Smart Matches & Notify Parties"]
+    G -- "No" --> I["Discard Correlation"]
+

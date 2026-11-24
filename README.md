@@ -308,9 +308,3 @@ node test_audit.mjs
 - 📐 **[System Architecture Specifications](SYSTEM_ARCHITECTURE.md)**: Deep dive into the AWS serverless topology, DynamoDB schemas, and security controls.
 - 🎬 **[Live Demo & Presentation Script](DEMO_SCRIPT.md)**: Step-by-step evaluator walkthrough covering all 13 core workflows.
 - 📊 **[Diagram Index & Asset Catalog](docs/demo/DIAGRAM_INDEX.md)**: Master inventory detailing all reused and audited project diagrams.
-
----
-
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE) – open source and free for institutional and community adaptation.
